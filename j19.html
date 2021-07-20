@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>Game</title>
+	<script type="text/javascript">
+	var x=0;
+	var y=0;
+	var t=60;
+	var p=setInterval(f1,900);
+	var h=0;
+	function f1(){
+		var x=Math.floor(Math.random()*230);
+		var y=Math.floor(Math.random()*1000);
+		document.getElementById("im").style.margin=x;
+		document.getElementById("im").style.marginLeft=y;
+		t--;
+		document.getElementById("ti").innerHTML="Time:"+t;
+
+		if(t<=10){
+			document.getElementById("ti").style.fontSize=30;
+			document.getElementById("ti").style.color="red";
+		}
+		if(t<=0){
+			clearInterval(p);
+			if(h>=5){
+				document.getElementById("res").innerHTML="You win";
+			}
+			else{
+				document.getElementById("res").innerHTML="You lose...try again";
+				document.getElementById("res").style.color="red";
+			}
+		}
+	}
+
+	function getcount(){
+		h++;
+	}
+	</script>
+	<style type="text/css">
+		body{
+			margin-left: 50px;
+			margin-right: 50px;
+			background-color: lightcyan;
+			border: 5px solid green;
+			
+		}
+
+	</style>
+</head>
+<body>
+<center>
+	<h1 style="background-color: cyan;color: #f23d49;"> Pic click Game </h1>
+	<h4 style="color: #343740;">How to play? Answer: Click on the image more than or equal to 5 times to win</h4>
+</center>
+	<div  style="background-color: #ffc68c; color: green; height: 9vh; width: 100%;">
+		<center>
+			<h3 id="ti"></h3>
+			<h3 id="res"></h3>
+		</center>
+	</div>
+	<div style="width: 100%; height: 63vh; background-color: #b3ff9c;">
+	<img src="1.jpg" height="90" width="90" id="im" onclick="getcount()" style="border: 2px solid red; border-radius: 50px;">
+	</div>
+	<div style="background-color: pink; color: green; height: 5vh; width: 100%;"><center><h3>Created by Rahul Barthwal</h3></center></div>
+</body>
+</html>
